@@ -1,0 +1,4 @@
+name: piratecraft
+version: '${project.version}'
+main: online.lxbs.minecraft.plugins.piratecraft.Piratecraft
+api-version: '1.20'
