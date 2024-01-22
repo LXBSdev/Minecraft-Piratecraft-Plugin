@@ -2,3 +2,10 @@ name: piratecraft
 version: '${project.version}'
 main: online.lxbs.minecraft.plugins.piratecraft.Piratecraft
 api-version: '1.20'
+commands:
+  swords:
+    description: Swords trading GUI
+    usage: /swords
+  bows:
+    description: Bows trading GUI
+    usage: /bows
