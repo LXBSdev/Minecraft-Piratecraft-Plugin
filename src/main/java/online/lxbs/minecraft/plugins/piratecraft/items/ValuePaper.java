@@ -16,6 +16,10 @@ public class ValuePaper {
         return material;
     }
 
+    public Material getType() {
+        return material;
+    }
+
     public static ItemStack getValuePaper(int amount) {
         ItemStack dubblon = new ItemStack(Material.PAPER, amount);
         ItemMeta meta = dubblon.getItemMeta();
