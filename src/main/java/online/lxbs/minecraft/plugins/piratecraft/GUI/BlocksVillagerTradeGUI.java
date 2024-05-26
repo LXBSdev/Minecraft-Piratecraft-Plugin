@@ -1,7 +1,7 @@
 package online.lxbs.minecraft.plugins.piratecraft.GUI;
 
-import online.lxbs.minecraft.plugins.piratecraft.recipes.CobbleStoneRecipe;
-import online.lxbs.minecraft.plugins.piratecraft.recipes.OakPlanksRecipe;
+import online.lxbs.minecraft.plugins.piratecraft.recipes.blocks.CobbleStoneRecipe;
+import online.lxbs.minecraft.plugins.piratecraft.recipes.blocks.OakPlanksRecipe;
 import org.bukkit.Bukkit;
 import org.bukkit.inventory.Merchant;
 import org.bukkit.inventory.MerchantRecipe;
