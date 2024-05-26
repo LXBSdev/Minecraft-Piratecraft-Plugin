@@ -1,6 +1,5 @@
-package online.lxbs.minecraft.plugins.piratecraft.listeners;
+package online.lxbs.minecraft.plugins.piratecraft.listeners.villagers;
 
-import online.lxbs.minecraft.plugins.piratecraft.GUI.BlocksVillagerTradeGUI;
 import online.lxbs.minecraft.plugins.piratecraft.GUI.BowsVillagerTradeGUI;
 import online.lxbs.minecraft.plugins.piratecraft.Piratecraft;
 import org.bukkit.Bukkit;
