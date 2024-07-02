@@ -8,9 +8,9 @@ import org.bukkit.configuration.file.FileConfiguration;
 public class ConfigManager {
     private static FileConfiguration config;
 
-    public static void setupConfig(Piratecraft minigame) {
-        ConfigManager.config = minigame.getConfig();
-        minigame.saveDefaultConfig();
+    public static void setupConfig(Piratecraft piratecraft) {
+        ConfigManager.config = piratecraft.getConfig();
+        piratecraft.saveDefaultConfig();
     }
 
     public static int getRequiredPlayers() {
@@ -21,7 +21,7 @@ public class ConfigManager {
         return config.getInt("countdown-seconds");
     }
 
-    public static Location getSpawnLocation() {
+    public static Location getLobbySpawn() {
         return new Location(
                 Bukkit.getWorld(config.getString("lobby-spawn.world")),
                 config.getDouble("lobby-spawn.x"),

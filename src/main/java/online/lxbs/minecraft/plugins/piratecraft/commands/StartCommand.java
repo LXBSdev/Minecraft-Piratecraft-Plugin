@@ -1,7 +1,7 @@
 package online.lxbs.minecraft.plugins.piratecraft.commands;
 
 import online.lxbs.minecraft.plugins.piratecraft.managers.GameManager;
-import online.lxbs.minecraft.plugins.piratecraft.managers.GameState;
+import online.lxbs.minecraft.plugins.piratecraft.GameState;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -17,7 +17,7 @@ public class StartCommand implements CommandExecutor {
     }
 
     public boolean onCommand(@Nonnull CommandSender commandSender,@Nonnull Command command,@Nonnull String string,@Nonnull String[] args) {
-        gameManager.setGameState(GameState.STARTING);
+        gameManager.setGameState(GameState.COUNTDOWN);
 
         return false;
     }

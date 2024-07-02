@@ -2,7 +2,7 @@ package online.lxbs.minecraft.plugins.piratecraft.listeners;
 
 import online.lxbs.minecraft.plugins.piratecraft.Piratecraft;
 import online.lxbs.minecraft.plugins.piratecraft.managers.GameManager;
-import online.lxbs.minecraft.plugins.piratecraft.managers.GameState;
+import online.lxbs.minecraft.plugins.piratecraft.GameState;
 import online.lxbs.minecraft.plugins.piratecraft.managers.PlayerManager;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
@@ -25,24 +25,24 @@ public class PlayerJoinListener implements Listener {
     @EventHandler
     private void onPlayerJoin(@NotNull PlayerJoinEvent event){
         Player player = event.getPlayer();
-        if (gameManager.getGameState() == GameState.LOBBY) {
+        if (gameManager.getGameState() == GameState.RECRUITING) {
             player.setGameMode(GameMode.ADVENTURE);
             playerManager.setPvP(false);
             if (Bukkit.getOnlinePlayers().size() >= 8 && Bukkit.getOnlinePlayers().size() <= 16) {
-                gameManager.setGameState(GameState.STARTING);
+                gameManager.setGameState(GameState.COUNTDOWN);
             }
-        } else if (gameManager.getGameState() == GameState.STARTING) {
-            gameManager.setGameState(GameState.LOBBY);
-        } else if (gameManager.getGameState() == GameState.ACTIVE) {
+        } else if (gameManager.getGameState() == GameState.COUNTDOWN) {
+            gameManager.setGameState(GameState.RECRUITING);
+        } else if (gameManager.getGameState() == GameState.LIVE) {
             player.setGameMode(GameMode.SPECTATOR);
         }
     }
 
     @EventHandler
     private void onPlayerLeave(PlayerQuitEvent event) {
-        if (gameManager.getGameState() != GameState.ACTIVE) {
+        if (gameManager.getGameState() != GameState.LIVE) {
             if (Bukkit.getOnlinePlayers().size() < 8) {
-                gameManager.setGameState(GameState.LOBBY);
+                gameManager.setGameState(GameState.RECRUITING);
             }
         }
     }

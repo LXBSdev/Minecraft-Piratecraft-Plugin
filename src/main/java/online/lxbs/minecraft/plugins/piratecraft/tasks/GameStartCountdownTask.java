@@ -1,7 +1,7 @@
 package online.lxbs.minecraft.plugins.piratecraft.tasks;
 
 import online.lxbs.minecraft.plugins.piratecraft.managers.GameManager;
-import online.lxbs.minecraft.plugins.piratecraft.managers.GameState;
+import online.lxbs.minecraft.plugins.piratecraft.GameState;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -38,7 +38,7 @@ public class GameStartCountdownTask extends BukkitRunnable {
 
         if (timeLeft <= 0) {
             cancel();
-            gameManager.setGameState(GameState.ACTIVE);
+            gameManager.setGameState(GameState.LIVE);
             return;
         }
     }
