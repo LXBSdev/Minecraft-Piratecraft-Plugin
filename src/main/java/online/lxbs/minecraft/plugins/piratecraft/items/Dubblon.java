@@ -4,6 +4,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.jetbrains.annotations.NotNull;
 
 public class Dubblon {
     private final Material material;
@@ -16,6 +17,7 @@ public class Dubblon {
         return material;
     }
 
+    @NotNull
     public static ItemStack getDubblon(int amount) {
         ItemStack dubblon = new ItemStack(Material.BRICK, amount);
         ItemMeta meta = dubblon.getItemMeta();

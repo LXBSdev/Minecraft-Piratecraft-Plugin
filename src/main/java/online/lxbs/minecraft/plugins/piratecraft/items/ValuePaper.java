@@ -4,6 +4,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.jetbrains.annotations.NotNull;
 
 public class ValuePaper {
     private final Material material;
@@ -20,6 +21,7 @@ public class ValuePaper {
         return material;
     }
 
+    @NotNull
     public static ItemStack getValuePaper(int amount) {
         ItemStack dubblon = new ItemStack(Material.PAPER, amount);
         ItemMeta meta = dubblon.getItemMeta();

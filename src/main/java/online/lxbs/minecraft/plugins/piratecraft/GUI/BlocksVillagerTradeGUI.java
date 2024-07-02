@@ -5,11 +5,14 @@ import online.lxbs.minecraft.plugins.piratecraft.recipes.blocks.OakPlanksRecipe;
 import org.bukkit.Bukkit;
 import org.bukkit.inventory.Merchant;
 import org.bukkit.inventory.MerchantRecipe;
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class BlocksVillagerTradeGUI {
 
+    @NotNull
     public static Merchant getBlocksVillagerTradeGUI() {
         Merchant merchant = Bukkit.createMerchant("Blocks");
         List<MerchantRecipe> recipes = new ArrayList<>();

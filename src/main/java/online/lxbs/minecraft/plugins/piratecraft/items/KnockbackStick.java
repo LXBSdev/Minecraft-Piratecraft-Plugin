@@ -5,6 +5,7 @@ import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.jetbrains.annotations.NotNull;
 
 public class KnockbackStick {
     private final Material material;
@@ -17,6 +18,7 @@ public class KnockbackStick {
         return material;
     }
 
+    @NotNull
     public static ItemStack getKnockbackStick(int amount) {
         ItemStack knockbackStick = new ItemStack(Material.STICK, amount);
         ItemMeta meta = knockbackStick.getItemMeta();

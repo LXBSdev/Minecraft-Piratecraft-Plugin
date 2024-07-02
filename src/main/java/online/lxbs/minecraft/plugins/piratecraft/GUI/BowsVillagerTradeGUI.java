@@ -4,12 +4,14 @@ import online.lxbs.minecraft.plugins.piratecraft.recipes.bows.*;
 import org.bukkit.Bukkit;
 import org.bukkit.inventory.Merchant;
 import org.bukkit.inventory.MerchantRecipe;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class BowsVillagerTradeGUI {
 
+    @NotNull
     public static Merchant getBowsVillagerTradeGUI() {
         Merchant merchant = Bukkit.createMerchant("Bows");
         List<MerchantRecipe> recipes = new ArrayList<>();

@@ -1,7 +1,7 @@
 package online.lxbs.minecraft.plugins.piratecraft.tasks;
 
-import online.lxbs.minecraft.plugins.piratecraft.manager.GameManager;
-import online.lxbs.minecraft.plugins.piratecraft.manager.GameState;
+import online.lxbs.minecraft.plugins.piratecraft.managers.GameManager;
+import online.lxbs.minecraft.plugins.piratecraft.managers.GameState;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;

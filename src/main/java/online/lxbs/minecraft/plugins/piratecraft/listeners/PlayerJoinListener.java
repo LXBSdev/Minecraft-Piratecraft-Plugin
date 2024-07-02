@@ -1,9 +1,9 @@
 package online.lxbs.minecraft.plugins.piratecraft.listeners;
 
 import online.lxbs.minecraft.plugins.piratecraft.Piratecraft;
-import online.lxbs.minecraft.plugins.piratecraft.manager.GameManager;
-import online.lxbs.minecraft.plugins.piratecraft.manager.GameState;
-import online.lxbs.minecraft.plugins.piratecraft.manager.PlayerManager;
+import online.lxbs.minecraft.plugins.piratecraft.managers.GameManager;
+import online.lxbs.minecraft.plugins.piratecraft.managers.GameState;
+import online.lxbs.minecraft.plugins.piratecraft.managers.PlayerManager;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
@@ -11,6 +11,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.jetbrains.annotations.NotNull;
 
 public class PlayerJoinListener implements Listener {
 
@@ -22,7 +23,7 @@ public class PlayerJoinListener implements Listener {
     private PlayerManager playerManager;
 
     @EventHandler
-    private void onPlayerJoin(PlayerJoinEvent event){
+    private void onPlayerJoin(@NotNull PlayerJoinEvent event){
         Player player = event.getPlayer();
         if (gameManager.getGameState() == GameState.LOBBY) {
             player.setGameMode(GameMode.ADVENTURE);

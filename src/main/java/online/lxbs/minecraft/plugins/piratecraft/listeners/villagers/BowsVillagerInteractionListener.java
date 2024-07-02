@@ -7,6 +7,7 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractAtEntityEvent;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
@@ -15,7 +16,7 @@ public class BowsVillagerInteractionListener implements Listener {
     public BowsVillagerInteractionListener(Piratecraft plugin) {Bukkit.getPluginManager().registerEvents(this, plugin);}
 
     @EventHandler
-    public void onBlockVillagerInteraction(PlayerInteractAtEntityEvent event) {
+    public void onBlockVillagerInteraction(@NotNull PlayerInteractAtEntityEvent event) {
         if (!event.getRightClicked().getType().equals(EntityType.VILLAGER)) return;
         if (!Objects.equals(event.getRightClicked().getCustomName(), "Bows")) return;
         event.getPlayer().openMerchant(BowsVillagerTradeGUI.getBowsVillagerTradeGUI(), true);

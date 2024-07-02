@@ -1,7 +1,6 @@
 package online.lxbs.minecraft.plugins.piratecraft.entities;
 
 public class PiratePlayer {
-
     private Integer points;
     private String team;
 

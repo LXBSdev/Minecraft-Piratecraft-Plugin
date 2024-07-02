@@ -3,8 +3,10 @@ package online.lxbs.minecraft.plugins.piratecraft.recipes.blocks;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.MerchantRecipe;
+import org.jetbrains.annotations.NotNull;
 
 public class OakPlanksRecipe {
+    @NotNull
     public static MerchantRecipe getOakPlanksRecipe() {
         ItemStack result = new ItemStack(Material.OAK_PLANKS, 15);
         MerchantRecipe recipe = new MerchantRecipe(result, 10000);
