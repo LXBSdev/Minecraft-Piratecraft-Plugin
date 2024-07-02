@@ -1,6 +1,5 @@
 package online.lxbs.minecraft.plugins.piratecraft.commands;
 
-import online.lxbs.minecraft.plugins.piratecraft.managers.GameManager;
 import online.lxbs.minecraft.plugins.piratecraft.GameState;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

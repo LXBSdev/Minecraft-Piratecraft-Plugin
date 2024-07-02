@@ -1,9 +1,7 @@
 package online.lxbs.minecraft.plugins.piratecraft.listeners;
 
 import online.lxbs.minecraft.plugins.piratecraft.Piratecraft;
-import online.lxbs.minecraft.plugins.piratecraft.managers.GameManager;
 import online.lxbs.minecraft.plugins.piratecraft.GameState;
-import online.lxbs.minecraft.plugins.piratecraft.managers.PlayerManager;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
