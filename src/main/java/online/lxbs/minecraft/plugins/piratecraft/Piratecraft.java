@@ -4,7 +4,8 @@ import online.lxbs.minecraft.plugins.piratecraft.commands.BowsCommand;
 import online.lxbs.minecraft.plugins.piratecraft.commands.SwordsCommand;
 import online.lxbs.minecraft.plugins.piratecraft.listeners.PlayerInteractionListener;
 import online.lxbs.minecraft.plugins.piratecraft.listeners.PlayerJoinListener;
-import online.lxbs.minecraft.plugins.piratecraft.manager.GameManager;
+import online.lxbs.minecraft.plugins.piratecraft.managers.ConfigManager;
+import online.lxbs.minecraft.plugins.piratecraft.managers.GameManager;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -14,6 +15,7 @@ public final class Piratecraft extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        ConfigManager.setupConfig(this);
         super.onEnable();
 
         this.gameManager = new GameManager(this);
