@@ -1,4 +1,4 @@
-package online.lxbs.minecraft.plugins.piratecraft.manager;
+package online.lxbs.minecraft.plugins.piratecraft.managers;
 
 import online.lxbs.minecraft.plugins.piratecraft.Piratecraft;
 import online.lxbs.minecraft.plugins.piratecraft.tasks.GameStartCountdownTask;

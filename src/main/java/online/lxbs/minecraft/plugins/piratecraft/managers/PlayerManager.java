@@ -1,4 +1,4 @@
-package online.lxbs.minecraft.plugins.piratecraft.manager;
+package online.lxbs.minecraft.plugins.piratecraft.managers;
 
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
