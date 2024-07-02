@@ -17,7 +17,7 @@ public class ArenaManager {
         FileConfiguration config = piratecraft.getConfig();
 
         for (String id : config.getConfigurationSection("arenas.").getKeys(false)) {
-            arenas.add(new Arena(Integer.parseInt(id), new Location(
+            arenas.add(new Arena(piratecraft, Integer.parseInt(id), new Location(
                     Bukkit.getWorld(config.getString("arenas." + id + ".world")),
                     config.getDouble("arenas." + id + ".x"),
                     config.getDouble("arenas." + id + ".y"),
