@@ -1,7 +1,7 @@
 package online.lxbs.minecraft.plugins.piratecraft.listeners;
 
+import online.lxbs.minecraft.plugins.piratecraft.GameState;
 import online.lxbs.minecraft.plugins.piratecraft.Piratecraft;
-import org.bukkit.Bukkit;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -10,20 +10,19 @@ import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.jetbrains.annotations.NotNull;
 
 public class PlayerInteractionListener implements Listener {
+    private final Piratecraft piratecraft;
 
-    public PlayerInteractionListener(Piratecraft plugin) {
-        Bukkit.getPluginManager().registerEvents(this, plugin);
+    public PlayerInteractionListener(Piratecraft piratecraft) {
+        this.piratecraft = piratecraft;
     }
-
-    private PlayerManager playerManager;
 
     @EventHandler
     public void onPlayerInteraction(@NotNull PlayerInteractEntityEvent event) {
-        Entity entity = event.getRightClicked();
-        if (entity instanceof Player && !playerManager.getPvPStatus()) {
+        if (!(event.getRightClicked() instanceof Player)) return;
+        Player player = event.getPlayer();
+
+        if (piratecraft.getArenaManager().getArena(player).getState() != GameState.LIVE) {
             event.setCancelled(true);
-        } else if (entity instanceof Player && playerManager.getPvPStatus()) {
-            return;
         }
     }
 }
