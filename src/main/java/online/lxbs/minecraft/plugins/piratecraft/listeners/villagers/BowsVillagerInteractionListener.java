@@ -1,8 +1,6 @@
 package online.lxbs.minecraft.plugins.piratecraft.listeners.villagers;
 
 import online.lxbs.minecraft.plugins.piratecraft.GUI.BowsVillagerTradeGUI;
-import online.lxbs.minecraft.plugins.piratecraft.Piratecraft;
-import org.bukkit.Bukkit;
 import org.bukkit.entity.EntityType;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -12,9 +10,6 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Objects;
 
 public class BowsVillagerInteractionListener implements Listener {
-
-    public BowsVillagerInteractionListener(Piratecraft plugin) {Bukkit.getPluginManager().registerEvents(this, plugin);}
-
     @EventHandler
     public void onBlockVillagerInteraction(@NotNull PlayerInteractAtEntityEvent event) {
         if (!event.getRightClicked().getType().equals(EntityType.VILLAGER)) return;

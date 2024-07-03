@@ -4,6 +4,9 @@ import online.lxbs.minecraft.plugins.piratecraft.commands.ArenaCommand;
 import online.lxbs.minecraft.plugins.piratecraft.commands.BowsCommand;
 import online.lxbs.minecraft.plugins.piratecraft.commands.SwordsCommand;
 import online.lxbs.minecraft.plugins.piratecraft.listeners.*;
+import online.lxbs.minecraft.plugins.piratecraft.listeners.villagers.BlocksVillagerInteractionListener;
+import online.lxbs.minecraft.plugins.piratecraft.listeners.villagers.BowsVillagerInteractionListener;
+import online.lxbs.minecraft.plugins.piratecraft.listeners.villagers.SwordsVillagerInteractionListener;
 import online.lxbs.minecraft.plugins.piratecraft.managers.ArenaManager;
 import online.lxbs.minecraft.plugins.piratecraft.managers.ConfigManager;
 import org.bukkit.Bukkit;
@@ -29,6 +32,9 @@ public final class Piratecraft extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new PlayerLeaveListener(this), this);
         Bukkit.getPluginManager().registerEvents(new PlayerInteractionListener(this), this);
         Bukkit.getPluginManager().registerEvents(new GameListener(this), this);
+        Bukkit.getPluginManager().registerEvents(new BlocksVillagerInteractionListener(), this);
+        Bukkit.getPluginManager().registerEvents(new BowsVillagerInteractionListener(), this);
+        Bukkit.getPluginManager().registerEvents(new SwordsVillagerInteractionListener(), this);
     }
 
     public ArenaManager getArenaManager() {
