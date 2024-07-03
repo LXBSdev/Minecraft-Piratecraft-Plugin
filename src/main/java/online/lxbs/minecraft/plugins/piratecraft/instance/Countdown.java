@@ -7,8 +7,8 @@ import org.bukkit.ChatColor;
 import org.bukkit.scheduler.BukkitRunnable;
 
 public class Countdown extends BukkitRunnable {
-    private Piratecraft piratecraft;
-    private Arena arena;
+    private final Piratecraft piratecraft;
+    private final Arena arena;
     private int countdownSeconds;
 
     public Countdown(Piratecraft piratecraft, Arena arena) {
@@ -33,6 +33,8 @@ public class Countdown extends BukkitRunnable {
         if (countdownSeconds <= 10 || countdownSeconds % 15 == 0) {
             arena.sendMessage(ChatColor.GREEN + "Game will start in " + countdownSeconds + " second" + (countdownSeconds == 1 ? "" : "s") + ".");
         }
+
+        arena.sendTitle(ChatColor.GREEN.toString() + countdownSeconds + "second" + (countdownSeconds == 1 ? "" : "s"), ChatColor.GRAY + "until game starts");
 
         countdownSeconds--;
     }

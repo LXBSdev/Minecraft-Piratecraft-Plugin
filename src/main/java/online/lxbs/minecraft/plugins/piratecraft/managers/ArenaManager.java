@@ -6,14 +6,15 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ArenaManager {
-    private List<Arena> arenas = new ArrayList<>();
+    private final List<Arena> arenas = new ArrayList<>();
 
-    public ArenaManager(Piratecraft piratecraft) {
+    public ArenaManager(@NotNull Piratecraft piratecraft) {
         FileConfiguration config = piratecraft.getConfig();
 
         for (String id : config.getConfigurationSection("arenas.").getKeys(false)) {

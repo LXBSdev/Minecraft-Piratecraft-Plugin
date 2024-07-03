@@ -9,3 +9,4 @@ commands:
   bows:
     description: Bows trading GUI
     usage: /bows
+  arena:

@@ -4,11 +4,12 @@ import online.lxbs.minecraft.plugins.piratecraft.Piratecraft;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.jetbrains.annotations.NotNull;
 
 public class ConfigManager {
     private static FileConfiguration config;
 
-    public static void setupConfig(Piratecraft piratecraft) {
+    public static void setupConfig(@NotNull Piratecraft piratecraft) {
         ConfigManager.config = piratecraft.getConfig();
         piratecraft.saveDefaultConfig();
     }

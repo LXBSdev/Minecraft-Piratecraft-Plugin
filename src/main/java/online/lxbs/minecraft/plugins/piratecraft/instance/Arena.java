@@ -4,28 +4,28 @@ import online.lxbs.minecraft.plugins.piratecraft.GameState;
 import online.lxbs.minecraft.plugins.piratecraft.Piratecraft;
 import online.lxbs.minecraft.plugins.piratecraft.managers.ConfigManager;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
 public class Arena {
-    private Piratecraft piratecraft;
-    private int id;
-    private Location spawn;
+    private final Piratecraft piratecraft;
+    private final int id;
+    private final Location spawn;
+    private final List<UUID> players;
     private GameState state;
-    private List<UUID> players;
     private Countdown countdown;
     private Game game;
 
     public Arena(Piratecraft piratecraft, int id, Location spawn) {
         this.piratecraft = piratecraft;
-
         this.id = id;
         this.spawn = spawn;
-
         this.state = GameState.RECRUITING;
         this.players = new ArrayList<>();
         this.countdown = new Countdown(piratecraft, this);
@@ -45,6 +45,7 @@ public class Arena {
             players.clear();
         }
 
+        sendTitle("", "");
         state = GameState.RECRUITING;
         countdown.cancel();
         countdown = new Countdown(piratecraft, this);
@@ -63,7 +64,7 @@ public class Arena {
         }
     }
 
-    public void addPlayer(Player player) {
+    public void addPlayer(@NotNull Player player) {
         players.add(player.getUniqueId());
         player.teleport(spawn);
 
@@ -72,9 +73,21 @@ public class Arena {
         }
     }
 
-    public void removePlayer(Player player) {
+    public void removePlayer(@NotNull Player player) {
         players.remove(player.getUniqueId());
         player.teleport(ConfigManager.getLobbySpawn());
+        player.sendTitle("", "");
+
+        if (state.equals(GameState.COUNTDOWN) && players.size() < ConfigManager.getRequiredPlayers()) {
+            sendMessage(ChatColor.RED + "There is not enough players. Countdown stopped.");
+            reset(false);
+            return;
+        }
+
+        if (state.equals(GameState.LIVE) && players.size() < ConfigManager.getRequiredPlayers()) {
+            sendMessage(ChatColor.RED + "The game has ended as too many players left.");
+            reset(false);
+        }
     }
 
     public List<UUID> getPlayers() {
@@ -83,6 +96,10 @@ public class Arena {
 
     public int getId() {
         return id;
+    }
+
+    public Game getGame() {
+        return game;
     }
 
     public GameState getState() {
