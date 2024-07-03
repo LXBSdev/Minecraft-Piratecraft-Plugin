@@ -2,7 +2,7 @@ package online.lxbs.minecraft.plugins.piratecraft.listeners;
 
 import online.lxbs.minecraft.plugins.piratecraft.GameState;
 import online.lxbs.minecraft.plugins.piratecraft.Piratecraft;
-import org.bukkit.entity.Entity;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -18,7 +18,7 @@ public class PlayerInteractionListener implements Listener {
 
     @EventHandler
     public void onPlayerInteraction(@NotNull PlayerInteractEntityEvent event) {
-        if (!(event.getRightClicked() instanceof Player)) return;
+        if (!event.getRightClicked().getType().equals(EntityType.PLAYER)) return;
         Player player = event.getPlayer();
 
         if (piratecraft.getArenaManager().getArena(player).getState() != GameState.LIVE) {
