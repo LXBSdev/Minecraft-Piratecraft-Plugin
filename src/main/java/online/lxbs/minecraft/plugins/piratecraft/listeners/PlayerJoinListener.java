@@ -9,6 +9,6 @@ import org.jetbrains.annotations.NotNull;
 public class PlayerJoinListener implements Listener {
     @EventHandler
     private void onPlayerJoin(@NotNull PlayerJoinEvent event){
-        event.getPlayer().teleport(ConfigManager.getLobbySpawn());
+        event.getPlayer().teleport(ConfigManager.LOBBY_SPAWN);
     }
 }

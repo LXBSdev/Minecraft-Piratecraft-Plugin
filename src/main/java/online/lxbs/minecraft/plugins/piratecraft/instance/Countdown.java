@@ -14,7 +14,7 @@ public class Countdown extends BukkitRunnable {
     public Countdown(Piratecraft piratecraft, Arena arena) {
         this.piratecraft = piratecraft;
         this.arena = arena;
-        this.countdownSeconds = ConfigManager.getCountdownSeconds();
+        this.countdownSeconds = ConfigManager.COUNTDOWN_SECONDS;
     }
 
     public void start() {
