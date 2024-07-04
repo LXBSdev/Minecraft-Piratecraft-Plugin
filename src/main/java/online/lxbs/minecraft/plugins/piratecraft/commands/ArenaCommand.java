@@ -3,6 +3,7 @@ package online.lxbs.minecraft.plugins.piratecraft.commands;
 import online.lxbs.minecraft.plugins.piratecraft.GameState;
 import online.lxbs.minecraft.plugins.piratecraft.Piratecraft;
 import online.lxbs.minecraft.plugins.piratecraft.instance.Arena;
+import online.lxbs.minecraft.plugins.piratecraft.managers.ConfigManager;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -53,7 +54,9 @@ public class ArenaCommand implements CommandExecutor {
             if (id >= 0 && id < piratecraft.getArenaManager().getArenas().size()) {
                 Arena arena = piratecraft.getArenaManager().getArena(id);
 
-                if (arena.getState() == GameState.RECRUITING || arena.getState() == GameState.COUNTDOWN) {
+                if (arena.getPlayers().size() != ConfigManager.MAXIMUM_PLAYERS
+                        && (arena.getState() == GameState.RECRUITING
+                        || arena.getState() == GameState.COUNTDOWN)) {
                     player.sendMessage(ChatColor.GREEN + "You are already playing in arena " + id + ".");
                     arena.addPlayer(player);
                 } else {
