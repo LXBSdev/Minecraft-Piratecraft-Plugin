@@ -5,6 +5,7 @@ import online.lxbs.minecraft.plugins.piratecraft.Piratecraft;
 import online.lxbs.minecraft.plugins.piratecraft.managers.ConfigManager;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
@@ -69,6 +70,7 @@ public class Arena {
 
     public void addPlayer(@NotNull Player player) {
         players.add(player.getUniqueId());
+        player.setGameMode(GameMode.ADVENTURE);
 
         if (state.equals(GameState.RECRUITING)
                 && players.size() >= ConfigManager.REQUIRED_PLAYERS

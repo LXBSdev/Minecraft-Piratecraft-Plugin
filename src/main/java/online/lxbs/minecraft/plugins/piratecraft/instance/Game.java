@@ -3,6 +3,11 @@ package online.lxbs.minecraft.plugins.piratecraft.instance;
 import online.lxbs.minecraft.plugins.piratecraft.GameState;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.GameMode;
+import org.bukkit.Material;
+import org.bukkit.block.Block;
+import org.bukkit.block.BlockFace;
+import org.bukkit.block.data.type.Bed;
 import org.bukkit.entity.Player;
 
 import java.util.HashMap;
@@ -27,6 +32,19 @@ public class Game {
             Team team = Team.values()[i];
             points.put(uuid, 0);
             teams.put(uuid, team);
+
+            BedLocation location = arena.getBeds().get(team);
+            Block block = location.getBlock();
+            for (Bed.Part part : Bed.Part.values()) {
+                block.setBlockData(Bukkit.createBlockData(Material.RED_BED, (data) -> {
+                    ((Bed) data).setPart(part);
+                    ((Bed) data).setFacing(location.getFacing());
+                }));
+                block = block.getRelative(location.getFacing().getOppositeFace());
+            }
+
+            Player player = Bukkit.getPlayer(uuid);
+            player.setGameMode(GameMode.SURVIVAL);
             Bukkit.getPlayer(uuid).teleport(arena.getSpawns().get(team));
         }
     }
