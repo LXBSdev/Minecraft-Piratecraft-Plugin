@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.UUID;
 
 public class Game {
-    private Arena arena;
+    private final Arena arena;
     private HashMap<UUID, Team> teams;
     private HashMap<UUID, Integer> points;
 

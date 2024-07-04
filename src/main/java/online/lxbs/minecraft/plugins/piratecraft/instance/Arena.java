@@ -10,22 +10,25 @@ import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
 public class Arena {
     private final Piratecraft piratecraft;
     private final int id;
-    private final Location spawn;
     private final List<UUID> players;
+    private final HashMap<Team, Location> spawns;
+    private final HashMap<Team, BedLocation> beds;
     private GameState state;
     private Countdown countdown;
     private Game game;
 
-    public Arena(Piratecraft piratecraft, int id, Location spawn) {
+    public Arena(Piratecraft piratecraft, int id, HashMap<Team, Location> spawns, HashMap<Team, BedLocation> beds) {
         this.piratecraft = piratecraft;
         this.id = id;
-        this.spawn = spawn;
+        this.spawns = spawns;
+        this.beds = beds;
         this.state = GameState.RECRUITING;
         this.players = new ArrayList<>();
         this.countdown = new Countdown(piratecraft, this);
@@ -66,7 +69,6 @@ public class Arena {
 
     public void addPlayer(@NotNull Player player) {
         players.add(player.getUniqueId());
-        player.teleport(spawn);
 
         if (state.equals(GameState.RECRUITING)
                 && players.size() >= ConfigManager.REQUIRED_PLAYERS
@@ -106,6 +108,10 @@ public class Arena {
 
     public HashMap<Team, Location> getSpawns() {
         return spawns;
+    }
+
+    public HashMap<Team, BedLocation> getBeds() {
+        return beds;
     }
 
     public GameState getState() {
