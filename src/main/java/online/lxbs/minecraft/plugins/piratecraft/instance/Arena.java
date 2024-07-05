@@ -42,7 +42,7 @@ public class Arena {
 
     public void reset(boolean kickPlayers) {
         if (kickPlayers) {
-            Location location = ConfigManager.LOBBY_SPAWN;
+            Location location = ConfigManager.getLobbySpawn();
             for (UUID uuid : players) {
                 Bukkit.getPlayer(uuid).teleport(location);
             }
@@ -73,7 +73,7 @@ public class Arena {
         player.setGameMode(GameMode.ADVENTURE);
 
         if (state.equals(GameState.RECRUITING)
-                && players.size() >= ConfigManager.REQUIRED_PLAYERS
+                && players.size() >= ConfigManager.getRequiredPlayers()
                 && players.size() % 2 == 0) {
             countdown.start();
         }
@@ -81,16 +81,16 @@ public class Arena {
 
     public void removePlayer(@NotNull Player player) {
         players.remove(player.getUniqueId());
-        player.teleport(ConfigManager.LOBBY_SPAWN);
+        player.teleport(ConfigManager.getLobbySpawn());
         player.sendTitle("", "");
 
-        if (state.equals(GameState.COUNTDOWN) && players.size() < ConfigManager.REQUIRED_PLAYERS) {
+        if (state.equals(GameState.COUNTDOWN) && players.size() < ConfigManager.getRequiredPlayers()) {
             sendMessage(ChatColor.RED + "There is not enough players. Countdown stopped.");
             reset(false);
             return;
         }
 
-        if (state.equals(GameState.LIVE) && players.size() < ConfigManager.REQUIRED_PLAYERS) {
+        if (state.equals(GameState.LIVE) && players.size() < ConfigManager.getRequiredPlayers()) {
             sendMessage(ChatColor.RED + "The game has ended as too many players left.");
             reset(false);
         }

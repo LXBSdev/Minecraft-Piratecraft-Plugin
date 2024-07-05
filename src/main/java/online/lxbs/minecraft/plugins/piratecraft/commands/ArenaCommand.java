@@ -54,7 +54,7 @@ public class ArenaCommand implements CommandExecutor {
             if (id >= 0 && id < piratecraft.getArenaManager().getArenas().size()) {
                 Arena arena = piratecraft.getArenaManager().getArena(id);
 
-                if (arena.getPlayers().size() != ConfigManager.MAXIMUM_PLAYERS
+                if (arena.getPlayers().size() != ConfigManager.getMaxPlayers()
                         && (arena.getState() == GameState.RECRUITING
                         || arena.getState() == GameState.COUNTDOWN)) {
                     player.sendMessage(ChatColor.GREEN + "You are already playing in arena " + id + ".");

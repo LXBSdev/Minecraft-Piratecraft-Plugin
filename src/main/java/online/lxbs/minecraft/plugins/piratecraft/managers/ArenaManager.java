@@ -46,7 +46,7 @@ public class ArenaManager {
                         config.getDouble("arenas." + id + ".beds." + team + ".x"),
                         config.getDouble("arenas." + id + ".beds." + team + ".y"),
                         config.getDouble("arenas." + id + ".beds." + team + ".z"),
-                        BlockFace.valueOf(config.getString("arenas." + id + ".spawns." + team + ".facing").toUpperCase())
+                        BlockFace.valueOf(config.getString("arenas." + id + ".beds." + team + ".facing").toUpperCase())
                 ));
             }
 
