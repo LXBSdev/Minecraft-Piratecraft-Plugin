@@ -20,7 +20,7 @@ public class BowsVillagerTradeGUI {
         recipes.add(BowInfinityPower1Punch1Recipe.getBowInfinityPower1Punch1Recipe());
         recipes.add(BowInfinityPower1Punch2FlameRecipe.getBowInfinityPower1Punch2FlameRecipe());
         recipes.add(BowInfinityPower1Punch2FlameUnbreaking1Recipe.getBowInfinityPower1Punch2FlameUnbreaking1Recipe());
-        recipes.add(BowInfinityPunch25Recipe.getBowInfinityPunch25Recipe());
+        recipes.add(BowInfinityPunch2Recipe.getBowInfinityPunch2Recipe());
         recipes.add(ArrowRecipe.getArrowRecipe());
         recipes.add(SpectralArrowRecipe.getSpectralArrowRecipe());
         merchant.setRecipes(recipes);

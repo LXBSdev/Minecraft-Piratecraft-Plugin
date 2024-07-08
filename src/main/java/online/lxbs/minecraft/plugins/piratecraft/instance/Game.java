@@ -3,7 +3,6 @@ package online.lxbs.minecraft.plugins.piratecraft.instance;
 import online.lxbs.minecraft.plugins.piratecraft.GameState;
 import org.bukkit.*;
 import org.bukkit.block.Block;
-import org.bukkit.block.data.type.Bed;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.metadata.FixedMetadataValue;

@@ -11,7 +11,7 @@ import java.util.Objects;
 
 public class BowsVillagerInteractionListener implements Listener {
     @EventHandler
-    public void onBlockVillagerInteraction(@NotNull PlayerInteractAtEntityEvent event) {
+    public void onBowsVillagerInteraction(@NotNull PlayerInteractAtEntityEvent event) {
         if (!event.getRightClicked().getType().equals(EntityType.VILLAGER)) return;
         if (!Objects.equals(event.getRightClicked().getCustomName(), "Bows")) return;
         event.getPlayer().openMerchant(BowsVillagerTradeGUI.getBowsVillagerTradeGUI(), true);
