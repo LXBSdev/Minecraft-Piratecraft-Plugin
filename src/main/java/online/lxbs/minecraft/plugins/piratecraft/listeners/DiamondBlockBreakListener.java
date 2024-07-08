@@ -26,7 +26,7 @@ public class DiamondBlockBreakListener implements Listener {
         if (arena == null || !arena.getState().equals(GameState.LIVE)) return;
 
         Game game = arena.getGame();
-        event.setCancelled(game.destroyBed(Team.valueOf(event.getBlock().getMetadata("team").get(0).asString().toUpperCase()), event.getPlayer()));
+        event.setCancelled(game.destroyDiamondBlock(Team.valueOf(event.getBlock().getMetadata("team").get(0).asString().toUpperCase()), event.getPlayer()));
 
 
     }

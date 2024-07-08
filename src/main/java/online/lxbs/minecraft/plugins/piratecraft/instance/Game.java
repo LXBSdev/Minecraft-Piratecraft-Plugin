@@ -80,11 +80,11 @@ public class Game {
         this.points.replace(player.getUniqueId(), playerPoints);
     }
 
-    public boolean destroyBed(Team team, Player player) {
+    public boolean destroyDiamondBlock(Team team, Player player) {
         if (teams.get(player.getUniqueId()) == team) {
             return true;
         }
-        arena.sendMessage(player.getName() + " has broken " + team.getName() + "'s bed!");
+        arena.sendMessage(player.getName() + " has broken " + team.getName() + "'s diamond block!");
         existingDiamondBlocks.remove(team, false);
         return false;
     }
