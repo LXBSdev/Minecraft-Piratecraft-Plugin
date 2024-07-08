@@ -20,16 +20,16 @@ public class Arena {
     private final int id;
     private final List<UUID> players;
     private final HashMap<Team, Location> spawns;
-    private final HashMap<Team, BedLocation> beds;
+    private final HashMap<Team, Location> diamondBlocks;
     private GameState state;
     private Countdown countdown;
     private Game game;
 
-    public Arena(Piratecraft piratecraft, int id, HashMap<Team, Location> spawns, HashMap<Team, BedLocation> beds) {
+    public Arena(Piratecraft piratecraft, int id, HashMap<Team, Location> spawns, HashMap<Team, Location> diamondBlocks) {
         this.piratecraft = piratecraft;
         this.id = id;
         this.spawns = spawns;
-        this.beds = beds;
+        this.diamondBlocks = diamondBlocks;
         this.state = GameState.RECRUITING;
         this.players = new ArrayList<>();
         this.countdown = new Countdown(piratecraft, this);
@@ -53,6 +53,7 @@ public class Arena {
         state = GameState.RECRUITING;
         countdown.cancel();
         countdown = new Countdown(piratecraft, this);
+        game.cancelTasks();
         game = new Game(this);
     }
 
@@ -70,11 +71,11 @@ public class Arena {
 
     public void addPlayer(@NotNull Player player) {
         players.add(player.getUniqueId());
-        player.setGameMode(GameMode.ADVENTURE);
 
         if (state.equals(GameState.RECRUITING)
                 && players.size() >= ConfigManager.getRequiredPlayers()
-                && players.size() % 2 == 0) {
+                && players.size() % 1 == 0) {
+            player.setGameMode(GameMode.ADVENTURE);
             countdown.start();
         }
     }
@@ -112,8 +113,12 @@ public class Arena {
         return spawns;
     }
 
-    public HashMap<Team, BedLocation> getBeds() {
-        return beds;
+    public HashMap<Team, Location> getDiamondBlocks() {
+        return diamondBlocks;
+    }
+
+    public Piratecraft getPiratecraft() {
+        return piratecraft;
     }
 
     public GameState getState() {

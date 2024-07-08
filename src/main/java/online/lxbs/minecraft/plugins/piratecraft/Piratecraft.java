@@ -12,14 +12,12 @@ import online.lxbs.minecraft.plugins.piratecraft.managers.ConfigManager;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class Piratecraft extends JavaPlugin {
+public class Piratecraft extends JavaPlugin {
 
     private ArenaManager arenaManager;
 
     @Override
     public void onEnable() {
-        super.onEnable();
-
         ConfigManager.setupConfig(this);
 
         this.arenaManager = new ArenaManager(this);
@@ -35,6 +33,10 @@ public final class Piratecraft extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new BlocksVillagerInteractionListener(), this);
         Bukkit.getPluginManager().registerEvents(new BowsVillagerInteractionListener(), this);
         Bukkit.getPluginManager().registerEvents(new SwordsVillagerInteractionListener(), this);
+        Bukkit.getPluginManager().registerEvents(new DiamondBlockBreakListener(this), this);
+        Bukkit.getPluginManager().registerEvents(new PlayerDeathListener(this), this);
+
+        System.out.println("The Piratecraft plugin has been enabled!");
     }
 
     public ArenaManager getArenaManager() {
@@ -43,6 +45,6 @@ public final class Piratecraft extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        super.onDisable();
+        System.out.println("The Piratecraft plugin has been disabled!");
     }
 }

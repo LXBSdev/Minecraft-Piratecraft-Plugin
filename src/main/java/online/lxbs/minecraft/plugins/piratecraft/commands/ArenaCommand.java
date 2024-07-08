@@ -57,7 +57,7 @@ public class ArenaCommand implements CommandExecutor {
                 if (arena.getPlayers().size() != ConfigManager.getMaxPlayers()
                         && (arena.getState() == GameState.RECRUITING
                         || arena.getState() == GameState.COUNTDOWN)) {
-                    player.sendMessage(ChatColor.GREEN + "You are already playing in arena " + id + ".");
+                    player.sendMessage(ChatColor.GREEN + "You are now playing in arena " + id + ".");
                     arena.addPlayer(player);
                 } else {
                     player.sendMessage(ChatColor.RED + "You can not join this arena right now.");

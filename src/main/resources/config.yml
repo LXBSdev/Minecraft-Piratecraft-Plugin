@@ -29,14 +29,12 @@ arenas:
         z: 100
         yaw: -180
         pitch: 0
-    beds:
+    diamonds:
       red:
         x: 100
         y: 100
         z: 100
-        facing: north
       blue:
         x: 100
         y: 100
         z: 100
-        facing: south
