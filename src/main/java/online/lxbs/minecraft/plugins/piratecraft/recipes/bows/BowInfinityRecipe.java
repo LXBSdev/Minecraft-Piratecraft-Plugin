@@ -9,7 +9,7 @@ import org.bukkit.inventory.MerchantRecipe;
 public class BowInfinityRecipe {
     public static MerchantRecipe getBowInfinityRecipe() {
         ItemStack result = new ItemStack(Material.BOW, 1);
-        result.addEnchantment(Enchantment.ARROW_INFINITE, 1);
+        result.addEnchantment(Enchantment.INFINITY, 1);
         MerchantRecipe recipe = new MerchantRecipe(result, 10000);
         recipe.addIngredient(Gold.getGold(3));
         return recipe;

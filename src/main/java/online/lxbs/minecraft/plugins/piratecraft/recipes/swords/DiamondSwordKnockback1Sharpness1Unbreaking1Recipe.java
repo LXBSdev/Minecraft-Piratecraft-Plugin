@@ -10,8 +10,8 @@ public class DiamondSwordKnockback1Sharpness1Unbreaking1Recipe {
     public static MerchantRecipe getDiamondSwordKnockback1Sharpness1Unbreaking1Recipe() {
         ItemStack result = new ItemStack(Material.DIAMOND_SWORD, 1);
         result.addEnchantment(Enchantment.KNOCKBACK, 1);
-        result.addEnchantment(Enchantment.DAMAGE_ALL, 1);
-        result.addEnchantment(Enchantment.DURABILITY, 1);
+        result.addEnchantment(Enchantment.SHARPNESS, 1);
+        result.addEnchantment(Enchantment.UNBREAKING, 1);
         MerchantRecipe recipe = new MerchantRecipe(result, 10000);
         recipe.addIngredient(Gold.getGold(20));
         return recipe;
