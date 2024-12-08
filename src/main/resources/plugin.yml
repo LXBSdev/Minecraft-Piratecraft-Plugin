@@ -1,7 +1,9 @@
 name: piratecraft
-version: '${project.version}'
+version: '${version}'
 main: online.lxbs.minecraft.plugins.piratecraft.Piratecraft
-api-version: '1.20'
+description: A Minecraft mini game for two or more players, with the goal to destroy the other players respawn point and kill them, in a pirate setting.
+website: lxbs.online
+api-version: '1.21'
 commands:
   swords:
     description: Swords trading GUI
